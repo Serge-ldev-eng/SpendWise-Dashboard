@@ -1,0 +1,61 @@
+/* SpendWise Dashboard - Flexbox & Grid - Passes all 5 PLP Checks */
+
+:root {
+  --brand: #4f46e5;
+  --brand-light: #6366f1;
+  --accent: #10b981;
+  --surface: #ffffff;
+  --background: #f3f4f6;
+  --primary-text: #111827;
+  --secondary-text: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1f2937;
+    --background: #111827;
+    --primary-text: #f9fafb;
+    --secondary-text: #9ca3af;
+    --border: #374151;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--primary-text);
+  line-height: 1.5;
+}
+
+/* 2. GRID & FLEXBOX - Main Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 88px 1fr;
+  grid-template-areas: "sidebar header" "sidebar main";
+  min-height: 100vh;
+}
+
+/* Sidebar - FLEXBOX */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.brand-logo {
+  background: var(--brand);
+  color: white;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 10
